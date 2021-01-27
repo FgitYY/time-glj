@@ -26,26 +26,26 @@ var timeType = [{
     description: 'YYYY/MM/DD hh-mm-ss'
   },
 ]
+var dateType = 3
+var timeNumber= null
 //定义一个类，通常首字母大写
 var TimeFormater = function (input, type) {
   var that = this
   // 默认返回的时间类型是 YYYY-MM-DD hh-mm-ss
-  that.dateType = 3
   timeType.forEach(function (item) {
     if (item.description === type) {
-      that.dateType = item.type
+      dateType = item.type
     }
   })
-
   if (typeof input === 'string') {
-    that.timeNumber = parseInt(input);
+    timeNumber = parseInt(input);
   } else if (typeof input === 'number') {
-    that.timeNumber = parseInt(input);
+    timeNumber = parseInt(input);
   } else {
-    that.timeNumber = (new Date()).getTime()
+    timeNumber = (new Date()).getTime()
   }
-  TimeFormater.fn.timeNumber = that.timeNumber
-  TimeFormater.fn.dateType = that.dateType
+  TimeFormater.fn.timeNumber = timeNumber
+  TimeFormater.fn.dateType = dateType
   return TimeFormater.fn.init();
 }
 
@@ -53,17 +53,17 @@ var TimeFormater = function (input, type) {
 TimeFormater.fn = TimeFormater.prototype = {
   constructor: TimeFormater,
   init: function () {
-    if (this.dateType === 1) {
+    if (dateType === 1) {
       return this.YYYY() + '-' + this.MM() + '-' + this.DD()
-    } else if (this.dateType === 2) {
+    } else if (dateType === 2) {
       return this.YYYY() + '/' + this.MM() + '/' + this.DD()
-    } else if (this.dateType === 3) {
+    } else if (dateType === 3) {
       return this.YYYY() + '-' + this.MM() + '-' + this.DD() + ' ' + this.hh() + ':' + this.mm() + ':' + this.ss()
-    } else if (this.dateType === 4) {
+    } else if (dateType === 4) {
       return this.YYYY() + '-' + this.MM() + '-' + this.DD() + ' ' + this.hh() + '-' + this.mm() + '-' + this.ss()
-    } else if (this.dateType === 5) {
+    } else if (dateType === 5) {
       return this.YYYY() + '/' + this.MM() + '/' + this.DD() + ' ' + this.hh() + ':' + this.mm() + ':' + this.ss()
-    } else if (this.dateType === 6) {
+    } else if (dateType === 6) {
       return this.YYYY() + '/' + this.MM() + '/' + this.DD() + ' ' + this.hh() + '-' + this.mm() + '-' + this.ss()
     } else {
       return this.YYYY() + '-' + this.MM() + '-' + this.DD() + ' ' + this.hh() + ':' + this.mm() + ':' + this.ss()

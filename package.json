@@ -1,6 +1,6 @@
 {
   "name": "time-glj",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "description": "a plugin which can show time in chinese and english",
   "main": "index.js",
