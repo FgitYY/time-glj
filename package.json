@@ -1,0 +1,17 @@
+{
+  "name": "time-glj",
+  "version": "1.0.3",
+  "private": false,
+  "description": "a plugin which can show time in chinese and english",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FgitYY/time-glj.git"
+  },
+  "Keywords":"time-glj",
+  "author": "grenas",
+  "license": "ISC"
+}
